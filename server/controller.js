@@ -1,5 +1,5 @@
-let globalID = 4
-let people = []
+let globalID = 3
+const people = require("./db.json")
 
 module.exports = {
 
@@ -43,7 +43,7 @@ module.exports = {
             people[index].power -= 1
             res.status(200).send(people)
         }else if (type === 'plus'){
-            people[index].price += 1
+            people[index].power += 1
             res.status(200).send(people)
         }else{
             res.status(400).send('failed')

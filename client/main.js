@@ -5,7 +5,7 @@ const form = document.querySelector('form')
 
 const baseURL = `http://localhost:4000/api/people`
 
-const peopleCallback = ({ data: people }) => peopleCallback(people)
+const peopleCallback = ({ data: people }) => displayPeople(people)
 const errCallback = err => console.log(err)
 
 const getCompliment = () => {
@@ -51,11 +51,11 @@ function createPersonCard(person) {
     const personCard = document.createElement('div')
     personCard.classList.add('person-card')
 
-    houseCard.innerHTML = `
+    personCard.innerHTML = `
     <p class="name">${person.name}</p>
     <div class="btns-container">
         <button onclick="updatePerson(${person.id}, 'minus')">-</button>
-        <p class="house-price">$${person.price}</p>
+        <p class="person-power">${person.power}</p>
         <button onclick="updatePerson(${person.id}, 'plus')">+</button>
     </div>
     <button onclick="deletePerson(${person.id})">delete</button>
